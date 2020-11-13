@@ -1,0 +1,19 @@
+AddressFamily any
+ListenAddress 0.0.0.0
+
+LoginGraceTime 2m
+MaxAuthTries 3
+MaxSessions 10
+PermitRootLogin no
+PubkeyAuthentication yes
+AuthorizedKeysFile	.ssh/authorized_keys
+PasswordAuthentication yes
+PermitEmptyPasswords no
+
+Subsystem	sftp	internal-sftp
+
+Match Group sftpgroup
+	ChrootDirectory /home
+	ForceCommand internal-sftp
+	X11Forwarding no
+	AllowTcpForwarding no

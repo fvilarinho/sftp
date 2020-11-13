@@ -1,23 +1,30 @@
-FROM alpine:latest
+FROM ghcr.io/concepting-com-br/base-image:1.0.0
 
-MAINTAINER Felipe Vilarinho <fvilarinho@innovativethinking.com.br>
+LABEL maintainer="fvilarinho@concepting.com.br"
 
-ENV DEFAULT_USERNAME=sftp
-ENV DEFAULT_PASSWORD=Sftp@2017
-ENV DEFAULT_PORT=22
+ENV APP_NAME=sftp
+
+ENV SETTINGS_HOSTNAME=host.docker.internal
+ENV SETTINGS_PORT=2379
+ENV SETTINGS_URL=http://${SETTINGS_HOSTNAME}:${SETTINGS_PORT}
+
+USER root
 
 RUN apk update && \
-    apk --no-cache add vim ca-certificates tar bash bash-completion tzdata unzip curl wget bind-tools net-tools openssh-client openssh-sftp-server openssh-server && \
-    cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && \
-    echo "America/Sao_Paulo" > /etc/timezone && \
-    apk del tzdata && \
-    /usr/bin/ssh-keygen -A && \
-    mkdir -p /opt/sftp
+    apk --no-cache add openssh-sftp-server \
+                       openssh-server && \
+    apk --no-cache \ 
+        --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \ 
+        add etcd-ctl && \                       
+    rm -f /etc/ssh/sshd_config                   
+                       
+RUN /usr/bin/ssh-keygen -A
 
-COPY src/configs/sshd_config /etc/ssh/
-COPY src/scripts/install.sh /opt/sftp/
-COPY src/scripts/startup.sh /opt/sftp/
+COPY etc/* ${ETC_DIR}/
+COPY bin/* ${BIN_DIR}/
 
-RUN chmod +x /opt/sftp/*
+RUN ln -s ${ETC_DIR}/sshd_config /etc/ssh/sshd_config && \
+    ln -s ${BIN_DIR}/startup.sh /entrypoint.sh && \
+    chmod +x ${BIN_DIR}/*.sh
     
-ENTRYPOINT ["/opt/sftp/startup.sh"]
+ENTRYPOINT ["/entrypoint.sh"]

@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  sftp:
+    build:
+      context: .
+    image: ghcr.io/concepting-com-br/sftp:1.0.0
+    container_name: sftp
+    hostname: sftp
+    ports: 
+      - 2222:2222
+    depends_on:
+      - etcd
+      
+  etcd:
+    image: ghcr.io/concepting-com-br/etcd:1.0.0
+    container_name: etcd
+    hostname: etcd
+    ports: 
+      - 2379:2379
+    volumes:
+      - ./etc/default.json:/opt/concepting/etc/sftp.json
+      - etcd-data:/opt/concepting/data
+
+volumes:
+  sftp-data:
+  sftp-log:
+  etcd-data:
+  
