@@ -1,19 +1,40 @@
-** Introduction **
+Synopsys
+========
 
-SFTP is an application which allows you to upload files in a safe way. 
+This a base image for a SFTP server to allow upload and store files.
+It uses the `ghcr.io/concepting-com-br/base-image` and `openssh-server` as the main engine.
+The configurations/settings are defined using the JSON format and stored in the `etc` directory.
 
-** How to run it **
 
-docker run -p 22:22 -e DEFAULT_PORT=22 DEFAULT_USERNAME=username -e DEFAULT_PASSWORD=password -d innovativethinking/sftp
+Build status
+============
 
-Then just connect through a sftp client:
+![CI/CD](https://github.com/concepting-com-br/sftp/workflows/Docker/badge.svg)
 
-sftp username@localhost
 
-** Author **
+Installation
+============
 
-Felipe Vilarinho 
+To use this image, just put the line below in your Dockerfile.
 
-fvilarinho@innovativethinking.com.br
+`FROM ghcr.io/concepting-com-br/sftp:latest`
 
-+55 11 9 8222-9197
+
+License
+=======
+
+This image is licensed under the Apache 2.0. Please read the licence file or check the URL [https://www.apache.org/licenses/LICENSE-2.0.txt](https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+
+Author
+======
+
+My name is Felipe Vilarinho (A.K.A Vila) and you can know more about me at the social medias below:
+
+1. [LinkedIn](https://br.linkedin.com/in/fvilarinho)
+
+Or send an email to fvilarinho@gmail.com or fvilarinho@concepting.com.br
+
+Have Fun!
+
+Best
