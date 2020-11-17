@@ -17,5 +17,3 @@ fi
 echo "Setting the default user password..."
 
 echo $USER:$PASSWORD | chpasswd
-
-echo "Initialization complete!"

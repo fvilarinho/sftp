@@ -20,11 +20,11 @@ RUN apk update && \
                        
 RUN /usr/bin/ssh-keygen -A
 
+COPY bin/startup.sh ${BIN_DIR}/${APP_NAME}-startup.sh
+COPY bin/install.sh ${BIN_DIR}/${APP_NAME}-install.sh
 COPY etc/* ${ETC_DIR}/
-COPY bin/* ${BIN_DIR}/
 
 RUN ln -s ${ETC_DIR}/sshd_config /etc/ssh/sshd_config && \
-    ln -s ${BIN_DIR}/startup.sh /entrypoint.sh && \
     chmod +x ${BIN_DIR}/*.sh
     
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["${BIN_DIR}/${APP_NAME}-startup.sh"]
