@@ -9,6 +9,8 @@ The configurations/settings are defined using the JSON format and stored in the 
 Build status
 ============
 
+The last stable version is 1.0.0
+
 ![CI/CD](https://github.com/concepting-com-br/sftp/workflows/Docker/badge.svg)
 
 
@@ -17,7 +19,9 @@ Installation
 
 To use this image, just put the line below in your Dockerfile.
 
-`FROM ghcr.io/concepting-com-br/sftp:latest`
+`FROM ghcr.io/concepting-com-br/sftp:1.0.0` - To use the last stable version.
+
+`FROM ghcr.io/concepting-com-br/sftp:latest` - To use the development version.
 
 
 License
