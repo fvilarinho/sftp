@@ -1,5 +1,7 @@
 {
 	"user": "user",
 	"password":  "!User@2020#",
-	"port": 2222
+	"port": 2222,
+	"buildName": "sftp",
+	"buildVersion": "1.0.0"
 }
