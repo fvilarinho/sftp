@@ -8,7 +8,7 @@ services:
     container_name: sftp
     hostname: sftp
     ports: 
-      - 2222:2222
+      - "2222:2222"
     depends_on:
       - etcd
       
@@ -17,7 +17,7 @@ services:
     container_name: etcd
     hostname: etcd
     ports: 
-      - 2379:2379
+      - "2379:2379"
     volumes:
       - ./etc/settings.json:/home/user/etc/sftp.json
       - etcd-data:/home/user/data
