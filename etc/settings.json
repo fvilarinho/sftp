@@ -1,7 +1,24 @@
 {
-	"user": "user",
-	"password":  "!User@2020#",
-	"port": 2222,
-	"buildName": "sftp",
-	"buildVersion": "latest"
+	"build":{
+		"name": {
+			"description": "Name of the build.",
+			"value": "sftp"
+		},
+		"version": {
+			"description": "Version of the build.",
+			"value": "latest"
+		}
+	},
+	"user": {
+		"description": "User name to be used by the connections.",
+		"value": "user"
+	},
+	"password": {
+		"description": "Password to be used by the connections.",
+		"value": "!User@2021#"
+	},
+	"port": {
+		"description": "Network port to listen the requests.",
+		"value": 2222
+	}
 }
