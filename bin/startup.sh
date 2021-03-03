@@ -1,12 +1,10 @@
 #!/bin/bash
 
-USER=`echo $SETTINGS | jq -r .user`
-PASSWORD=`echo $SETTINGS | jq -r .password`
-PORT=`echo $SETTINGS | jq -r .port`
+USER=`echo $SETTINGS | jq -r .user.value`
+PASSWORD=`echo $SETTINGS | jq -r .password.value`
 
 export USER
 export PASSWORD
-export PORT
 
 $BIN_DIR/child-install.sh
 
