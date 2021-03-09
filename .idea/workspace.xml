@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2314b33a-5f7c-43a2-aed8-f00f9f64deb0" name="Default Changelist" comment="Bug fixes.">
-      <change beforePath="$PROJECT_DIR$/bin/startup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bin/startup.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/etc/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/sshd_config" beforeDir="false" afterPath="$PROJECT_DIR$/etc/sshd_config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/publish.sh" beforeDir="false" afterPath="$PROJECT_DIR$/publish.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stop.sh" beforeDir="false" afterPath="$PROJECT_DIR$/stop.sh" afterDir="false" />
-    </list>
+    <list default="true" id="2314b33a-5f7c-43a2-aed8-f00f9f64deb0" name="Default Changelist" comment="Bug fixes." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
