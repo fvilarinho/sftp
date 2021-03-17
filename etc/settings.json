@@ -11,11 +11,11 @@
 	},
 	"user": {
 		"description": "User name to be used by the connections.",
-		"value": "user"
+		"value": "sftp"
 	},
 	"password": {
 		"description": "Password to be used by the connections.",
-		"value": "!User@2021#"
+		"value": "Sftp@2017"
 	},
 	"port": {
 		"description": "Network port to listen the requests.",
