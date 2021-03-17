@@ -13,17 +13,16 @@ RUN apk update && \
                        openssh-server && \
     apk --no-cache \ 
         --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \ 
-        add etcd-ctl && \                       
-    rm -f /etc/ssh/sshd_config                   
+        add etcd-ctl
                        
 RUN /usr/bin/ssh-keygen -A
 
 COPY bin/startup.sh ${BIN_DIR}/child-startup.sh
 COPY bin/install.sh ${BIN_DIR}/child-install.sh
-COPY etc/* ${ETC_DIR}/
 COPY .env ${ETC_DIR}/
 
-RUN ln -s ${ETC_DIR}/sshd_config /etc/ssh/sshd_config && \
-    chmod +x ${BIN_DIR}/*.sh
-    
+RUN chmod +x ${BIN_DIR}/child-*.sh && \
+    chown -R user:group ${HOME_DIR}/
+    chmod -R o-rwx ${HOME_DIR}/
+
 CMD ["${BIN_DIR}/child-startup.sh"]
