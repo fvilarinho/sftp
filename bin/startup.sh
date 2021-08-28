@@ -9,3 +9,4 @@ export PASSWORD
 $BIN_DIR/child-install.sh
 
 /usr/sbin/sshd -D -p $PORT &
+rsync --daemon
