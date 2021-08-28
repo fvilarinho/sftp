@@ -4,22 +4,22 @@ services:
   sftp:
     build:
       context: .
-    image: ghcr.io/concepting-com-br/sftp:${BUILD_VERSION}
-    container_name: sftp
-    hostname: sftp
+    image: ghcr.io/fvilarinho/${BUILD_NAME}:${BUILD_VERSION}
+    container_name: ${BUILD_NAME}
+    hostname: ${BUILD_NAME}
     ports: 
       - "2222:2222"
     depends_on:
       - etcd
       
   etcd:
-    image: ghcr.io/concepting-com-br/etcd:1.0.0
+    image: ghcr.io/fvilarinho/etcd:1.1.0
     container_name: etcd
     hostname: etcd
     ports: 
       - "2379:2379"
     volumes:
-      - ./etc/settings.json:/home/user/etc/sftp.json
+      - ./etc/settings.json:/home/user/etc/${BUILD_NAME}.json
       - etcd-data:/home/user/data
 
 volumes:
