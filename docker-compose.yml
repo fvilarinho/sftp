@@ -1,19 +1,19 @@
-version: '3.8'
-
 services:
   sftp:
     build:
       context: .
-    image: ghcr.io/fvilarinho/${BUILD_NAME}:${BUILD_VERSION}
+    image: ${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_ID}/${BUILD_NAME}:${BUILD_VERSION}
     container_name: ${BUILD_NAME}
     hostname: ${BUILD_NAME}
     ports: 
       - "2222:2222"
+    volumes:
+      - sftp-data:/sftp
     depends_on:
       - etcd
       
   etcd:
-    image: ghcr.io/fvilarinho/etcd:1.1.0
+    image: ghcr.io/fvilarinho/etcd:1.2.0
     container_name: etcd
     hostname: etcd
     ports: 
@@ -24,6 +24,5 @@ services:
 
 volumes:
   sftp-data:
-  sftp-log:
   etcd-data:
   
