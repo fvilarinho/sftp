@@ -2,10 +2,6 @@ FROM ghcr.io/fvilarinho/base-image:1.2.0
 
 LABEL maintainer="fvilarinho@gmail.com"
 
-ENV SETTINGS_HOSTNAME=host.docker.internal
-ENV SETTINGS_PORT=2379
-ENV SETTINGS_URL=http://${SETTINGS_HOSTNAME}:${SETTINGS_PORT}
-
 USER root
 
 RUN apk update && \
